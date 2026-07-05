@@ -115,7 +115,10 @@ export default function App() {
 
             {/* The 3D Engine Wrapper */}
 <div className="w-full h-full bg-neutral-900 border-2 border-white">
-  <ErrorBoundary fallback={<div className="flex h-full items-center justify-center text-white uppercase font-bold text-xs tracking-widest text-center p-4">Error: Invalid or corrupted 3D model.<br/>Please upload a valid .glb file.</div>}>
+  <ErrorBoundary 
+    resetKeys={[selectedModelUrl]}
+    fallback={<div className="flex h-full items-center justify-center text-white uppercase font-bold text-xs tracking-widest text-center p-4">Error: Invalid or corrupted 3D model.<br/>Please upload a valid .glb file.</div>}
+  >
     <ModelViewer modelUrl={selectedModelUrl} />
   </ErrorBoundary>
 </div>
