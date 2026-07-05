@@ -41,12 +41,6 @@ export default function App() {
         {/* Header Banner */}
         <header className="mb-12 flex flex-col md:flex-row md:items-end justify-between border-b-4 border-white pb-8 gap-4">
           <div>
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="h-4 w-4 bg-white"></div>
-              <span className="text-xs font-bold uppercase tracking-[0.3em] text-white">
-                System.Active
-              </span>
-            </div>
             <h1 className="text-5xl lg:text-7xl font-black tracking-tighter uppercase text-white">
               3D Viewer.
             </h1>
