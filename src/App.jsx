@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { supabase } from './services/supabaseClient';
 import ModelViewer from './components/three/ModelViewer';
 import AdminUploadPanel from './components/ui/AdminUploadPanel';
+import { ErrorBoundary } from 'react-error-boundary';
 
 export default function App() {
   const [models, setModels] = useState([]);
@@ -113,9 +114,11 @@ export default function App() {
             </div>
 
             {/* The 3D Engine Wrapper */}
-            <div className="w-full h-full bg-neutral-900 border-2 border-white">
-               <ModelViewer modelUrl={selectedModelUrl} />
-            </div>
+<div className="w-full h-full bg-neutral-900 border-2 border-white">
+  <ErrorBoundary fallback={<div className="flex h-full items-center justify-center text-white uppercase font-bold text-xs tracking-widest text-center p-4">Error: Invalid or corrupted 3D model.<br/>Please upload a valid .glb file.</div>}>
+    <ModelViewer modelUrl={selectedModelUrl} />
+  </ErrorBoundary>
+</div>
           </div>
           
         </main>
